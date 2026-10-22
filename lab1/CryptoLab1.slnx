@@ -1,0 +1,4 @@
+<Solution>
+  <Project Path="Crypto/Crypto.csproj" />
+  <Project Path="Demo/Demo.csproj" />
+</Solution>
