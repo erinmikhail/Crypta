@@ -1,0 +1,5 @@
+<Solution>
+  <Project Path="Crypto2.Tests/Crypto2.Tests.csproj" />
+  <Project Path="Crypto2/Crypto2.csproj" />
+  <Project Path="Demo/Demo.csproj" />
+</Solution>

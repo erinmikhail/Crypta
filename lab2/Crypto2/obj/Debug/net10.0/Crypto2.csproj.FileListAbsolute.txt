@@ -1,0 +1,12 @@
+D:\works_by_universe\CRIPTA\lab2\Crypto2\bin\Debug\net10.0\Crypto2.deps.json
+D:\works_by_universe\CRIPTA\lab2\Crypto2\bin\Debug\net10.0\Crypto2.dll
+D:\works_by_universe\CRIPTA\lab2\Crypto2\bin\Debug\net10.0\Crypto2.pdb
+D:\works_by_universe\CRIPTA\lab2\Crypto2\obj\Debug\net10.0\Crypto2.GeneratedMSBuildEditorConfig.editorconfig
+D:\works_by_universe\CRIPTA\lab2\Crypto2\obj\Debug\net10.0\Crypto2.AssemblyInfoInputs.cache
+D:\works_by_universe\CRIPTA\lab2\Crypto2\obj\Debug\net10.0\Crypto2.AssemblyInfo.cs
+D:\works_by_universe\CRIPTA\lab2\Crypto2\obj\Debug\net10.0\Crypto2.csproj.CoreCompileInputs.cache
+D:\works_by_universe\CRIPTA\lab2\Crypto2\obj\Debug\net10.0\Crypto2.sourcelink.json
+D:\works_by_universe\CRIPTA\lab2\Crypto2\obj\Debug\net10.0\Crypto2.dll
+D:\works_by_universe\CRIPTA\lab2\Crypto2\obj\Debug\net10.0\refint\Crypto2.dll
+D:\works_by_universe\CRIPTA\lab2\Crypto2\obj\Debug\net10.0\Crypto2.pdb
+D:\works_by_universe\CRIPTA\lab2\Crypto2\obj\Debug\net10.0\ref\Crypto2.dll
