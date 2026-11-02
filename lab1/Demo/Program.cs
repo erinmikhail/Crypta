@@ -1,32 +1,53 @@
-﻿using Crypto.Bits;
+using System.Text;
+using Crypto.Deal;
+using Crypto.Des;
+using Demo;
 
-Console.OutputEncoding = System.Text.Encoding.UTF8;
+Console.OutputEncoding = Encoding.UTF8;
 
-byte[] oneByte = { 0xB1 };                       // 1011 0001
-int[] rotate = { 2, 3, 4, 5, 6, 7, 8, 1 };
+string samplesDir = Path.GetFullPath("samples");
+string outputDir = Path.GetFullPath("demo_out");
 
-Check("Сдвиг, MsbFirst с 1",
-    BitPermutation.Permute(oneByte, rotate, BitOrder.MsbFirst, 1), "63");
-
-Check("Сдвиг, LsbFirst с 1",
-    BitPermutation.Permute(oneByte, rotate, BitOrder.LsbFirst, 1), "D8");
-
-int[] rotateZero = { 1, 2, 3, 4, 5, 6, 7, 0 };
-Check("Сдвиг, MsbFirst с 0",
-    BitPermutation.Permute(oneByte, rotateZero, BitOrder.MsbFirst, 0), "63");
-
-byte[] twoBytes = { 0xB1, 0x0F };
-int[] swapBytes = { 8, 9, 10, 11, 12, 13, 14, 15, 0, 1, 2, 3, 4, 5, 6, 7 };
-Check("Обмен байтов, MsbFirst с 0",
-    BitPermutation.Permute(twoBytes, swapBytes, BitOrder.MsbFirst, 0), "0FB1");
-
-int[] duplicate = { 1, 2, 3, 4, 5, 6, 7, 8, 1, 2, 3, 4, 5, 6, 7, 8 };
-Check("Расширение 8 → 16 бит",
-    BitPermutation.Permute(oneByte, duplicate, BitOrder.MsbFirst, 1), "B1B1");
-
-static void Check(string name, byte[] actual, string expectedHex)
+if (args.Length > 0)
 {
-    string actualHex = Convert.ToHexString(actual);
-    string status = actualHex == expectedHex ? "OK  " : "FAIL";
-    Console.WriteLine($"[{status}] {name}: {actualHex} (ожидали {expectedHex})");
+    if (args[0] == "des") await RunDesDemoAsync();
+    else if (args[0] == "deal") await RunDealDemoAsync();
+    else Console.WriteLine("Аргументы: des | deal. Без аргументов - меню.");
+    return;
 }
+
+while (true)
+{
+    Console.WriteLine();
+    Console.WriteLine("Лабораторная работа №1: DES и DEAL");
+    Console.WriteLine("1 - зашифровать / расшифровать свои данные");
+    Console.WriteLine("2 - демонстрация DES (задание 5)");
+    Console.WriteLine("3 - демонстрация DEAL (задание 7)");
+    Console.WriteLine("0 - выход");
+    Console.Write("> ");
+
+    switch (Console.ReadLine()?.Trim())
+    {
+        case "1":
+            await Interactive.RunAsync();
+            break;
+        case "2":
+            await RunDesDemoAsync();
+            break;
+        case "3":
+            await RunDealDemoAsync();
+            break;
+        case "0" or null:
+            return;
+        default:
+            Console.WriteLine("Нет такого пункта.");
+            break;
+    }
+}
+
+// DES: файлы до 4 МБ. DEAL в каждом раунде выполняет целый DES, поэтому медленнее: файлы до 1 МБ.
+Task RunDesDemoAsync() => Demonstration.RunAsync("DES", () => new DesCipher(), DesCipher.KeySize,
+    samplesDir, outputDir, maxFileSize: 4L << 20, speedTestBytes: 1 << 20);
+
+Task RunDealDemoAsync() => Demonstration.RunAsync("DEAL", () => new DealCipher(), 16,
+    samplesDir, outputDir, maxFileSize: 1L << 20, speedTestBytes: 1 << 18);

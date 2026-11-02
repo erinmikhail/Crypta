@@ -9,3 +9,4 @@ D:\works_by_universe\CRIPTA\lab1\Crypto\obj\Debug\net10.0\Crypto.dll
 D:\works_by_universe\CRIPTA\lab1\Crypto\obj\Debug\net10.0\refint\Crypto.dll
 D:\works_by_universe\CRIPTA\lab1\Crypto\obj\Debug\net10.0\Crypto.pdb
 D:\works_by_universe\CRIPTA\lab1\Crypto\obj\Debug\net10.0\ref\Crypto.dll
+D:\works_by_universe\CRIPTA\lab1\Crypto\obj\Debug\net10.0\Crypto.sourcelink.json

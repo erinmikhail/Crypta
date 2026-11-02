@@ -1,8 +1,6 @@
-using System.Runtime.CompilerServices;
-
 namespace Crypto.Bits;
 
-///<summary>перестановка битов по правилу P-блока / i-й бит рез = бит входа с номером p[i] / ltn res в битах = len p-блока</summary>
+///<summary>перестановка битов по правилу P-блока / i-й бит рез = бит входа с номером p[i] / len res в битах = len p-блока</summary>
 
 public static class BitPermutation
 {
@@ -46,8 +44,7 @@ public static class BitPermutation
     }
 
     /// <summary>
-    /// Переводит номер бита из заданной нумерации в канонич:
-    /// от старш бита, начиная с 0.</summary>
+    /// Переводит номер бита из заданной нумерации в канонич:от старш бита, начиная с 0.</summary>
 
     private static int ToCanonical(int index, int totalBits, BitOrder bitOrder, int startIndex)
     {

@@ -10,7 +10,7 @@ public interface ISymmetricCipher
     /// <param name="key">ключ шифр-ия</param>
     void SetKey(byte[] key);
 
-    /// <summary>Шифр 1 блок len BlockSize</summary>
+    /// <summary>Шифр 1 блок len BlockSize. Входной массив не изменяется. SetKey безоп однов потоков</summary>
     /// <returns>Зашифр блок</returns>
     byte[] EncryptBlock(byte[] block);
 
